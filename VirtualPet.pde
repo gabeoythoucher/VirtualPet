@@ -5,7 +5,6 @@ void setup()
   noStroke();
   fill(0,0,0);
   triangle(345,25,250,-1,250,50);
-  //arc(350,100,100,100,-1*PI/2,PI/2); right half of a circle
   arc(250,50,100,100,PI,3*PI/2); // upper left 1/4 of a circle
   arc(200,50,100,99.5,0,PI); // bottom half of a circle
   arc(150,50,100,100,-1*PI,0); // top half of a circle
@@ -36,6 +35,18 @@ void setup()
   fill(0);
   ellipse(364.75,40.5,3,3);
   ellipse(409.25,40.5,3,3);  
+  
+  //patern
+  fill(0,125,0);
+
+  triangle(190,55,190,85,220,70); // triangle closest to tail
+  triangle(140,10,140,40,170,25);
+  triangle(90,55,90,85,120,70);
+  triangle(40,10,40,40,70,25);
+  triangle(25,95,10,125,40,125);
+  triangle(110,115,110,145,80,130);
+  
+  triangle(325,95,310,125,340,125);
 }
 //this will be a snake
 void draw(){

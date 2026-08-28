@@ -38,15 +38,21 @@ void setup()
   
   //patern
   fill(0,125,0);
-
-  triangle(190,55,190,85,220,70); // triangle closest to tail
+  triangle(240,10,240,40,290,25);// triangle closest to tail
+  triangle(190,55,190,85,220,70); 
   triangle(140,10,140,40,170,25);
   triangle(90,55,90,85,120,70);
   triangle(40,10,40,40,70,25);
   triangle(25,95,10,125,40,125);
+  triangle(60,155,60,185,30,170);
   triangle(110,115,110,145,80,130);
-  
-  triangle(325,95,310,125,340,125);
+  triangle(160,155,160,185,130,170);
+  triangle(210,115,210,145,180,130);
+  triangle(260,155,260,185,230,170);
+  triangle(310,60,310,90,280,75);
+  triangle(325,105,310,135,340,135);
+  triangle(370,160,370,190,340,175);
+  triangle(275,135,260,105,290,105);
 }
 //this will be a snake
 void draw(){

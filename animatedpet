@@ -1,0 +1,71 @@
+import processing.serial.*;
+import cc.arduino.*;
+Arduino arduino;
+
+public void setup() {
+  size(500, 500);
+  arduino = new Arduino(this, Arduino.list()[1], 57600); //change the [0] to a [1] or [2] etc. if your program doesn't work
+}
+
+public void draw() {
+  int k = 0;
+  int y = arduino.analogRead(5);
+  if (y>255) {
+    k = y-255;
+  } else {
+    k=0;
+  }
+  
+  background(y-k);
+  noStroke();
+  fill(Math.abs(255-y));
+  triangle(345,25,250,-1,250,50);
+  arc(250,50,100,100,PI,3*PI/2); // upper left 1/4 of a circle
+  arc(200,50,100,99.5,0,PI); // bottom half of a circle
+  arc(150,50,100,100,-1*PI,0); // top half of a circle
+  arc(100,50,100,99.5,0,PI);
+  arc(50,50,100,100,-1*PI,0);
+  rect(0,50,49,100);
+  arc(50,150,100,100,0,PI);
+  arc(100,150,100,99.5,-1*PI,0);
+  arc(150,150,100,100,0,PI);
+  arc(200,150,100,99.5,-1*PI,0);
+  arc(250,150,100,100,0,PI);
+  rect(251,100,49,50);
+  arc(300.5,100,99,100,-1*PI,0);
+  rect(301,100,49,50);
+  arc(356.75,150,111,100,0,PI);
+  rect(363.75,100,48.5,50);
+  fill(y-k);//curve body near head
+  arc(356.75,150,12.5,8,0,PI);
+  
+  //head
+  fill(Math.abs(255-y));
+  ellipse(387,60,74,115);
+  //eye
+  fill(255-y,y,0);
+  arc(365.75,45,12,18,PI/2+.25,3*PI/2+.25);
+  arc(408.5,45,12,18,-1*PI/2-.25,PI/2-.25);
+  //pupil
+  fill(0);
+  ellipse(364.75,40.5,3,3);
+  ellipse(409.25,40.5,3,3);  
+  
+  //patern
+  fill(205-y,y-125,0);
+  triangle(240,10,240,40,290,25);// triangle closest to tail
+  triangle(190,55,190,85,220,70); 
+  triangle(140,10,140,40,170,25);
+  triangle(90,55,90,85,120,70);
+  triangle(40,10,40,40,70,25);
+  triangle(25,95,10,125,40,125);
+  triangle(60,155,60,185,30,170);
+  triangle(110,115,110,145,80,130);
+  triangle(160,155,160,185,130,170);
+  triangle(210,115,210,145,180,130);
+  triangle(260,155,260,185,230,170);
+  triangle(310,60,310,90,280,75);
+  triangle(325,105,310,135,340,135);
+  triangle(370,160,370,190,340,175);
+  triangle(275,135,260,105,290,105);
+}
